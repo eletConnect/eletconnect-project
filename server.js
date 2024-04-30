@@ -1,25 +1,21 @@
 const express = require('express');
+const session = require('express-session');
 const cors = require('cors');
-const authRoutes = require('./src/routes/authRoutes'); // Importando as rotas de autenticação
 
+const authRoute = require('./src/auth/auth.route');
+const PORT = process.env.PORT || 3001;
 const app = express();
-const PORT = 3001;
 
-// Habilitando o CORS para todas as origens
-app.use(cors());
-
-// Middleware para tratar requisições com JSON
 app.use(express.json());
+app.use(cors());
+app.use(session({
+  secret: 'FS+Silj87FH5XSBUfqARoJN2oGNvKAGYYbiBvNT+p8C2dstmqH0oCq4iENQQFmQpCHAfXFHaRSJNYszwdMnlDg==',
+  resave: false,
+  saveUninitialized: false
+}));
 
-// Rota inicial
-app.get('/', (req, res) => {
-    res.send('O servidor está rodando!');
-});
+app.use('/auth', authRoute);
 
-// Rotas de autenticação
-app.use('/auth', authRoutes);
-
-// Iniciar o servidor
 app.listen(PORT, () => {
-    console.log(`[eletConnect]: O servidor node está ligado e está rodando na porta ${PORT}`);
+  console.log(`[eletConnect]: O servidor está online novamente.`);
 });
