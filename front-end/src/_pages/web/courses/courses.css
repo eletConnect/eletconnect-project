@@ -1,0 +1,27 @@
+.pagination {
+    margin-top: 0; /* Remover margem superior */
+}
+
+.page-item {
+    margin: 0 2px; /* Ajustar a margem horizontal entre os itens */
+}
+
+.page-link {
+    padding: 0.3rem 0.6rem; /* Ajustar o preenchimento interno do link */
+}
+
+.custom-pagination {
+    background-color: transparent; /* ou background-color: none; */
+}
+
+.scrollable-section {
+    max-height: auto; /* Defina a altura máxima conforme necessário */
+    overflow-y: auto; /* Isso permitirá a rolagem vertical quando o conteúdo exceder a altura máxima */
+  }
+  .button-container button {
+    margin-right: 10px; /* Adicione a margem desejada entre os botões */
+}
+.table-container {
+    margin-left: 10px; /* Ajuste conforme necessário */
+    margin-right: 10px; /* Ajuste conforme necessário */
+}
